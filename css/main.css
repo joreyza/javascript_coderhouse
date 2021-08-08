@@ -5,8 +5,8 @@
 }
 
 .contenedorPrinc {
-  background: -webkit-gradient(linear, left top, right bottom, from(#000000), to(#b7d2ff));
-  background: linear-gradient(to bottom right, #000000, #b7d2ff);
+  background: -webkit-gradient(linear, left top, right bottom, from(#47578b), to(#b7d2ff));
+  background: linear-gradient(to bottom right, #47578b, #b7d2ff);
 }
 
 .formulario {
