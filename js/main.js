@@ -19,38 +19,41 @@ buttonPress.onclick = () => {
 
   // Condicionales que se encargan de convertir las monedas seleccionadas y mostrar el resultado en pantalla
   if (monedaOrigen == "CLP" & monedaDestino == "USD") {
-    let conversion = montoOriginal * 0.0013;
-    let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>Monto en USD: </p>" + conversion + " USD"
-    document.body.appendChild(parrafo)
+    var conversion = montoOriginal * 0.0013;
+
+    var parrafo = document.createElement("div")
+    var texto = document.createTextNode("El monto en USD es: " + conversion + " USD")
+    parrafo.appendChild(texto)
+    document.getElementById("resultado").appendChild(parrafo)
+
   } else if (monedaOrigen == "CLP" & monedaDestino == "EUR") {
     let conversion = montoOriginal * 0.0011;
     let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>Monto en EUR: </p>" + conversion + " EUR"
+    parrafo.innerHTML = "<p class='response'>Monto en EUR: </p>" + conversion + " EUR"
     document.body.appendChild(parrafo)
   } else if (monedaOrigen == "EUR" & monedaDestino == "CLP") {
     let conversion = montoOriginal * 923;
     let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>Monto en CLP: </p>" + conversion + " CLP"
+    parrafo.innerHTML = "<p class='response'>Monto en CLP: </p>" + conversion + " CLP"
     document.body.appendChild(parrafo)
   } else if (monedaOrigen == "EUR" & monedaDestino == "USD") {
     let conversion = montoOriginal * 1.18;
     let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>Monto en USD: </p>" + conversion + " USD"
+    parrafo.innerHTML = "<p class='response'>Monto en USD: </p>" + conversion + " USD"
     document.body.appendChild(parrafo)
   } else if (monedaOrigen == "USD" & monedaDestino == "EUR") {
     let conversion = montoOriginal * 0.85;
     let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>Monto en EUR: </p>" + conversion + " EUR"
+    parrafo.innerHTML = "<p class='response'>Monto en EUR: </p>" + conversion + " EUR"
     document.body.appendChild(parrafo)
   } else if (monedaOrigen == "USD" & monedaDestino == "CLP") {
     let conversion = montoOriginal * 783;
     let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>Monto en CLP: </p>" + conversion + " CLP"
+    parrafo.innerHTML = "<p class='response'>Monto en CLP: </p>" + conversion + " CLP"
     document.body.appendChild(parrafo)
   } else if (monedaOrigen == "USD" & monedaDestino == "USD" || monedaOrigen == "EUR" & monedaDestino == "EUR" || monedaOrigen == "CLP" & monedaDestino == "CLP") {
     let parrafo = document.createElement("div");
-    parrafo.innerHTML = "<p>La moneda de origen y de destino son iguales, intente nuevamente. </p>"
+    parrafo.innerHTML = "<p class='response'>La moneda de origen y de destino son iguales, intente nuevamente. </p>"
     document.body.appendChild(parrafo)
   }
 }
