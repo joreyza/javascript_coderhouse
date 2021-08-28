@@ -21,21 +21,22 @@
             <p>Bienvenido! </p>
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Monto origen</span>
-                <input type="text" class="form-control" aria-label="Sizing example input"
+                <input type="text" id="montoOriginal" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-sm">
             </div>
-            <select class="form-select form-select-sm" aria-label="Default select example">
+            <span>Seleccione moneda de Origen</span>
+            <select id="monedaOrigen" class="form-select form-select-sm" aria-label="Default select example">
                 <option selected>Seleccione moneda origen</option>
-                <option value="1">USD Dolar Estadounidense</option>
-                <option value="2">CLP Pesos Chilenos</option>
-                <option value="3">EUR Euros</option>
+                <option value="1">USD</option>
+                <option value="2">CLP</option>
+                <option value="3">EUR</option>
             </select>
             <span>Seleccione moneda de destino</span>
-            <select class="form-select form-select-sm" aria-label="Default select example">
+            <select id="monedaDestino" class="form-select form-select-sm" aria-label="Default select example">
                 <option selected>Seleccione moneda destino</option>
-                <option value="1">USD Dolar Estadounidense</option>
-                <option value="2">CLP Pesos Chilenos</option>
-                <option value="3">EUR Euros</option>
+                <option id="Usd" value="1">USD</option>
+                <option id="Clp" value="2">CLP</option>
+                <option id="Eur" value="3">EUR</option>
             </select>
             <div id="separador"> </div>
             <div class="col-12">
