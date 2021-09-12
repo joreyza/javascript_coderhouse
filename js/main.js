@@ -1,31 +1,38 @@
+// Se obtienen los valores del EURO y el DOLAR a Pesos Chilenos (CLP)
+// usando la API de mindicador.cl basado en el Banco Central de Chile
+
+//Obtención del valor del EURO
+$.getJSON('https://mindicador.cl/api', function (data) {
+  var dailyIndicators = data;
+  globalThis.clpAeuro = 1 / (dailyIndicators.euro.valor);
+  globalThis.euro = dailyIndicators.euro.valor;
+
+  // se captura error
+}).fail(function () {
+  alert('Error al consumir la API!');
+});
+
+//Obtención del valor del DOLAR
+$.getJSON('https://mindicador.cl/api', function (data) {
+  var dailyIndicators = data;
+  globalThis.clpAusd = 1 / (dailyIndicators.dolar.valor);
+  globalThis.dolar = dailyIndicators.dolar.valor;
+
+  // se captura error
+}).fail(function () {
+  alert('Error al consumir la API!');
+});
+
+
+
+
 // usamos el ready para estar seguro de manipular el DOM cuando esté completamente cargadp
 $(document).ready(function () {
 
-
-
-  // Se obtienen los valores del EURO y el DOLAR a Pesos Chilenos (CLP)
-  // usando la API de mindicador.cl basado en el Banco Central de Chile
-
-  //Obtención del valor del EURO
-  $.getJSON('https://mindicador.cl/api', function (data) {
-    var dailyIndicators = data;
-    $("#apiRest").append(`El valor actual de la EURO es $ ${dailyIndicators.euro.valor}`)
-
-    // se captura error
-  }).fail(function () {
-    alert('Error al consumir la API!');
+  $("#refrescar").click(function () {
+    //Actualizamos la página
+    location.reload()
   });
-
-  //Obtención del valor del DOLAR
-  $.getJSON('https://mindicador.cl/api', function (data) {
-    var dailyIndicators = data;
-    var usdClp = 1 / (dailyIndicators.dolar.valor);
-    // se captura error
-  }).fail(function () {
-    alert('Error al consumir la API!');
-  });
-
-
 
   // Función que convierte los montos al presionar el botón "convertir" escrita con jQuery
   $("#boton").click(function () {
@@ -58,17 +65,18 @@ $(document).ready(function () {
     var datosUser = JSON.parse(objJSON)
 
 
+
+
     // Condicionales que se encargan de convertir las monedas seleccionadas y mostrar el resultado en pantalla con JQuery
     if (datosUser.origen == "CLP" & datosUser.destino == "USD") {
-      let conversion = parseFloat(datosUser.monto) * 0.0013
+      let conversion = parseFloat(datosUser.monto) * clpAusd;
 
       $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} CLP es: ${conversion} USD`)
-      $('#div1').slideUp(2000)
-        .delay(1000)
+      $('#div1')
         .slideDown(2000)
 
     } else if (datosUser.origen == "CLP" & datosUser.destino == "EUR") {
-      let conversion = parseFloat(datosUser.monto) * 0.0011
+      let conversion = parseFloat(datosUser.monto) * clpAeuro;
 
       $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} CLP es: ${conversion} EUR`)
       $('#div1').slideUp(2000)
@@ -76,9 +84,8 @@ $(document).ready(function () {
         .slideDown(2000)
 
 
-
     } else if (datosUser.origen == "EUR" & datosUser.destino == "CLP") {
-      let conversion = parseFloat(datosUser.monto) * 923
+      let conversion = parseFloat(datosUser.monto) * euro;
 
       $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} EUR es: ${conversion} CLP`)
       $('#div1').slideUp(2000)
@@ -87,7 +94,7 @@ $(document).ready(function () {
 
 
     } else if (datosUser.origen == "EUR" & datosUser.destino == "USD") {
-      let conversion = parseFloat(datosUser.monto) * 1.18
+      let conversion = parseFloat(datosUser.monto) * (euro / dolar);
 
       $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} EUR es: ${conversion} USD`)
       $('#div1').slideUp(2000)
@@ -96,7 +103,7 @@ $(document).ready(function () {
 
 
     } else if (datosUser.origen == "USD" & datosUser.destino == "EUR") {
-      let conversion = parseFloat(datosUser.monto) * 0.85
+      let conversion = parseFloat(datosUser.monto) * (dolar / euro);
 
       $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} USD es: ${conversion} EUR`)
       $('#div1').slideUp(2000)
@@ -105,7 +112,7 @@ $(document).ready(function () {
 
 
     } else if (datosUser.origen == "USD" & datosUser.destino == "CLP") {
-      let conversion = parseFloat(datosUser.monto) * 783
+      let conversion = parseFloat(datosUser.monto) * dolar;
 
       $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} USD es: ${conversion} CLP`)
       $('#div1').slideUp(2000)
