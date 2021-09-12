@@ -43,3 +43,14 @@
     display: flex;
     justify-content: center;
 }
+
+#boton,
+#refrescar {
+    background-color: $color3;
+    border: none;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 20px;
+}
