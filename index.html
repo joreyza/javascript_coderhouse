@@ -17,8 +17,8 @@
     <div class="contenedorPrinc">
 
         <div class="formulario">
-            <span>Convertidor de Monedas JR</span>
-            <p>Bienvenido! </p>
+            <span class="titulo">Convertidor de Monedas JR</span>
+            <p class="titulo">Bienvenido! </p>
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Monto origen</span>
                 <input type="text" id="montoOriginal" class="form-control" aria-label="Sizing example input"
@@ -39,17 +39,17 @@
                 <option id="Eur" value="EUR">EUR</option>
             </select>
             <div id="separador"> </div>
-            <div class="col-12">
+            <div id="btnConvertir" class="col-12">
                 <button id="boton" class="btn btn-primary" type="submit">Convertir!</button>
             </div>
             <div id="separador"> </div>
-            <div class="col-12">
+            <div id="btnRefrescar" class="col-12">
                 <button id="refrescar" class="btn btn-primary" type="submit">Volver a calcular</button>
             </div>
             </form>
             <div id="separador"> </div>
             <strong id="resultado" class="response"></strong>
-            <div id="apiRest"></div>
+            
         </div>
     </div>
 
