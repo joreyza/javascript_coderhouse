@@ -23,9 +23,6 @@ $.getJSON('https://mindicador.cl/api', function (data) {
   alert('Error al consumir la API!');
 });
 
-
-
-
 // usamos el ready para estar seguro de manipular el DOM cuando esté completamente cargadp
 $(document).ready(function () {
 
@@ -53,10 +50,6 @@ $(document).ready(function () {
       destino: localStorage.getItem("moneda destino")
     }
 
-    // console.log(objetoUser.monto)
-    // console.log (objetoUser.origen)
-    // console.log(objetoUser.destino)
-
     // Se convierte el objeto a formato JSON 
     const objJSON = JSON.stringify(objetoUser)
 
@@ -65,66 +58,90 @@ $(document).ready(function () {
     var datosUser = JSON.parse(objJSON)
 
 
-
-
     // Condicionales que se encargan de convertir las monedas seleccionadas y mostrar el resultado en pantalla con JQuery
+
     if (datosUser.origen == "CLP" & datosUser.destino == "USD") {
       let conversion = parseFloat(datosUser.monto) * clpAusd;
 
-      $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} CLP es: ${conversion} USD`)
-      $('#div1')
-        .slideDown(2000)
+      //se usa la librería Numeral JS para formatear resultado a moneda
+      var miConvertido = numeral(conversion);
+      var monedaConvString = miConvertido.format('$0,0.00');
+
+      var miOriginal = numeral(parseFloat(datosUser.monto));
+      var monedaOrigString = miOriginal.format('$0,0.00');
+
+      $("#resultado").append(`<div id="div1" style="display:none">${monedaOrigString} CLP es: ${monedaConvString} USD`)
+      $('#div1').slideDown(2000)
 
     } else if (datosUser.origen == "CLP" & datosUser.destino == "EUR") {
       let conversion = parseFloat(datosUser.monto) * clpAeuro;
 
-      $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} CLP es: ${conversion} EUR`)
-      $('#div1').slideUp(2000)
-        .delay(1000)
-        .slideDown(2000)
+      //se usa la librería Numeral JS para formatear resultado a moneda
+      var miConvertido = numeral(conversion);
+      var monedaConvString = miConvertido.format('$0,0.00');
 
+      var miOriginal = numeral(parseFloat(datosUser.monto));
+      var monedaOrigString = miOriginal.format('$0,0.00');
+
+      $("#resultado").append(`<div id="div1" style="display:none">${monedaOrigString} CLP es: ${monedaConvString} EUR`)
+      $('#div1').slideDown(2000)
 
     } else if (datosUser.origen == "EUR" & datosUser.destino == "CLP") {
       let conversion = parseFloat(datosUser.monto) * euro;
 
-      $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} EUR es: ${conversion} CLP`)
-      $('#div1').slideUp(2000)
-        .delay(1000)
-        .slideDown(2000)
+      //se usa la librería Numeral JS para formatear resultado a moneda
+      var miConvertido = numeral(conversion);
+      var monedaConvString = miConvertido.format('$0,0.00');
 
+      var miOriginal = numeral(parseFloat(datosUser.monto));
+      var monedaOrigString = miOriginal.format('$0,0.00');
+
+      $("#resultado").append(`<div id="div1" style="display:none">${monedaOrigString} EUR es: ${monedaConvString} CLP`)
+      $('#div1').slideDown(2000)
 
     } else if (datosUser.origen == "EUR" & datosUser.destino == "USD") {
       let conversion = parseFloat(datosUser.monto) * (euro / dolar);
 
-      $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} EUR es: ${conversion} USD`)
-      $('#div1').slideUp(2000)
-        .delay(1000)
-        .slideDown(2000)
+      //se usa la librería Numeral JS para formatear resultado a moneda
+      var miConvertido = numeral(conversion);
+      var monedaConvString = miConvertido.format('$0,0.00');
 
+      var miOriginal = numeral(parseFloat(datosUser.monto));
+      var monedaOrigString = miOriginal.format('$0,0.00');
+
+      $("#resultado").append(`<div id="div1" style="display:none">${monedaOrigString} EUR es: ${monedaConvString} USD`)
+      $('#div1').slideDown(2000)
 
     } else if (datosUser.origen == "USD" & datosUser.destino == "EUR") {
       let conversion = parseFloat(datosUser.monto) * (dolar / euro);
 
-      $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} USD es: ${conversion} EUR`)
-      $('#div1').slideUp(2000)
-        .delay(1000)
-        .slideDown(2000)
+      //se usa la librería Numeral JS para formatear resultado a moneda
+      var miConvertido = numeral(conversion);
+      var monedaConvString = miConvertido.format('$0,0.00');
 
+      var miOriginal = numeral(parseFloat(datosUser.monto));
+      var monedaOrigString = miOriginal.format('$0,0.00');
+
+      $("#resultado").append(`<div id="div1" style="display:none">${monedaOrigString} USD es: ${monedaConvString} EUR`)
+      $('#div1').slideDown(2000)
 
     } else if (datosUser.origen == "USD" & datosUser.destino == "CLP") {
       let conversion = parseFloat(datosUser.monto) * dolar;
 
-      $("#resultado").append(`<div id="div1" style="display:none">${datosUser.monto} USD es: ${conversion} CLP`)
-      $('#div1').slideUp(2000)
-        .delay(1000)
-        .slideDown(2000)
+      //se usa la librería Numeral JS para formatear resultado a moneda
+      var miConvertido = numeral(conversion);
+      var monedaConvString = miConvertido.format('$0,0.00');
+
+      var miOriginal = numeral(parseFloat(datosUser.monto));
+      var monedaOrigString = miOriginal.format('$0,0.00');
+
+      $("#resultado").append(`<div id="div1" style="display:none">${monedaOrigString} USD es: ${monedaConvString} CLP`)
+      $('#div1').slideDown(2000)
 
     } else if (datosUser.origen == "USD" & datosUser.destino == "USD" || datosUser.origen == "EUR" & datosUser.destino == "EUR" || datosUser.origen == "CLP" & datosUser.destino == "CLP") {
 
-      $("#resultado").append(`<div><p>La moneda de origen y de destino son iguales, intente nuevamente. </p></div>`)
-
+      $("#resultado").append(`<div id="div1" style="display:none"><p>La moneda de origen y de destino son iguales, intente nuevamente. </p></div>`)
+      $('#div1').slideDown(2000);
     }
   });
-
-
 });
