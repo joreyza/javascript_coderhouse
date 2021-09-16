@@ -31,20 +31,51 @@ $(document).ready(function () {
     location.reload()
   });
 
-  $(".aboutMe").click(function(){
+  // Se usa Sweet Alert 2 para los links de la navBar
+  $(".aboutMe").click(function () {
 
     Swal.fire({
-      title: 'Soy un desarrollador de software',
-      text: 'Mi nombre es Jorge Reyes. Se varias tecnologías web como: HTML, CSS3 y Javascript',
+      title: 'Soy un Front End Developer',
+      text: 'Mi nombre es Jorge Reyes. Sé varias tecnologías web como: HTML, CSS3 y Javascript',
       imageUrl: 'img/jorge_reyes.jpg',
       imageAlt: 'Custom image',
-      background:'#b7d2ff',
-      customClass:{
-        image:'swalImage',
-        title:'swalText'
+      background: '#b7d2ff',
+      customClass: {
+        image: 'swalImage',
       }
     })
+  })
 
+  $(".aboutApp").click(function () {
+
+    Swal.fire({
+      title: 'Convertidor de monedas JR',
+      text: 'Puedes converir entre tres divisas distintas: CLP (Pesos Chilenos), USD (Dolar USA) y EUR (euros). Los valores se obtienen de una base de datos actualizada diariamente, por lo tanto los resultados son reales.',
+      background: '#b7d2ff'
+    })
+  })
+
+  $(".credits").click(function () {
+
+    Swal.fire({
+      title: 'Créditos',
+      text: 'La app fue escrita en HTML, CSS3, SASS y Bootstrap. El convertidor funciona con Javascript y JQuery. Adicionalmente se usa la API de mindicador.cl para obtener los valores actualizados. Las alertas fueron construidas con sweetalert2.github.io y además se usa la librería numeral js para formatear los resultados',
+      background: '#b7d2ff'
+    })
+  })
+
+  $(".contact").click(function () {
+
+    Swal.fire({
+      text: 'Te dejo mi mail personal para que me escribas!',
+      title: 'joreyza@gmail.com',
+      imageUrl: 'img/jorge_reyes.jpg',
+      imageAlt: 'Custom image',
+      background: '#b7d2ff',
+      customClass: {
+        image: 'swalImage',
+      }
+    })
   })
 
 
