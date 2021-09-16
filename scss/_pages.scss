@@ -13,6 +13,37 @@
     background: linear-gradient(to bottom right, $color3, $color5);
 }
 
+/* Color de la navbar */
+.navbar_color {
+    background: $color4;
+}
+
+/* menu de la navbar a la izquierda */
+#navbarNav {
+    justify-content: flex-end
+}
+
+/* para sacar un padding de la navbar */
+nav {
+    padding: 0px !important;
+}
+
+.avatar {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.swalImage {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.swalText {
+    font: 2px;
+}
+
 .formulario {
     margin: 10px;
     padding: 10px;
@@ -52,5 +83,9 @@
 
 .titulo {
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+footer {
+    font-size: 10px;
 }

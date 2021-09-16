@@ -14,10 +14,40 @@
 </head>
 
 <body>
+    <!-- NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid navbar_color">
+            <a class="navbar-brand logo_name" href="#">
+                <img class="avatar" src="img/jorge_reyes.jpg" alt="" width="30" height="30"
+                    class="d-inline-block align-text-top">
+                Convertidor de monedas JR
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link aboutMe" href="#">Sobre Mi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre la App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Créditos de la App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="contenedorPrinc">
 
         <div class="formulario">
-            <span class="titulo">Convertidor de Monedas JR</span>
             <p class="titulo">Bienvenido! </p>
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-sm">Monto origen</span>
@@ -51,7 +81,11 @@
             <strong id="resultado" class="response"></strong>
 
         </div>
+
+        <footer>©2021 Powered by JR Investments</footer>
+
     </div>
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -61,6 +95,8 @@
     </script>
     <!-- Libreria para dar formato de monedas a los números "NUMERAL JS" -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <!-- Librería de alertas Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Javascript -->
     <script src="js/main.js"></script>
 

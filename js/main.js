@@ -31,15 +31,31 @@ $(document).ready(function () {
     location.reload()
   });
 
+  $(".aboutMe").click(function(){
+
+    Swal.fire({
+      title: 'Soy un desarrollador de software',
+      text: 'Mi nombre es Jorge Reyes. Se varias tecnologías web como: HTML, CSS3 y Javascript',
+      imageUrl: 'img/jorge_reyes.jpg',
+      imageAlt: 'Custom image',
+      background:'#b7d2ff',
+      customClass:{
+        image:'swalImage',
+        title:'swalText'
+      }
+    })
+
+  })
+
+
+
   // Función que convierte los montos al presionar el botón "convertir" escrita con jQuery
   $("#boton").click(function () {
 
     // Captura el monto ingresado por el usuario y lo guarda en local storage usando jQuery
     localStorage.setItem("monto original", $("#montoOriginal").val())
-
     // Captura la moneda de origen tipo texto y lo guarda en local storage usando jQuery
     localStorage.setItem("moneda original", $("#monedaOrigen").val())
-
     // Captura la moneda de destino tipo texto y lo guarda en local storage usando jQuery
     localStorage.setItem("moneda destino", $("#monedaDestino").val())
 

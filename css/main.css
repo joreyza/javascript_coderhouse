@@ -13,6 +13,39 @@
   background: linear-gradient(to bottom right, #47578b, #b7d2ff);
 }
 
+/* Color de la navbar */
+.navbar_color {
+  background: #7c91e3;
+}
+
+/* menu de la navbar a la izquierda */
+#navbarNav {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+/* para sacar un padding de la navbar */
+nav {
+  padding: 0px !important;
+}
+
+.avatar {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.swalImage {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.swalText {
+  font: 2px;
+}
+
 .formulario {
   margin: 10px;
   padding: 10px;
@@ -66,6 +99,10 @@
 
 .titulo {
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
+}
+
+footer {
+  font-size: 10px;
 }
 /*# sourceMappingURL=main.css.map */
